@@ -7,7 +7,7 @@ class Verifycode
 	{
 
 //		$font = ROOT_PATH.DIRECTORY_SEPARATOR.'fonts'.DIRECTORY_SEPARATOR.'msyh.ttf';
-		$font = ROOT_PATH.DIRECTORY_SEPARATOR.'Public'.DIRECTORY_SEPARATOR.'bootstrap'.DIRECTORY_SEPARATOR.'fonts'.DIRECTORY_SEPARATOR.'msyhbd.ttf';
+		$font = ROOT_PATH.DIRECTORY_SEPARATOR.'Public'.DIRECTORY_SEPARATOR.'bootstrap'.DIRECTORY_SEPARATOR.'fonts'.DIRECTORY_SEPARATOR.'wqy-microhei.ttc';
 //		var_dump("ROOT_PATH");exit;
 		$w = 200;
 		$h = 100;
