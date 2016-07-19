@@ -1,0 +1,66 @@
+<include file="Public/header" />
+
+<!--注册登录页面二级导航-->
+<div class="user-nav">
+    <ul class="nav nav-tabs">
+        <li role="presentation"><a href="reg.html">注册</a></li>
+        <li role="presentation"  class="active"><a href="login.html">登录</a></li>
+    </ul>
+</div>
+
+<!--注册页面表单-->
+<div class="form_user">
+    <form method="post" action="{:U('Home/User/login_submit')}" >
+
+        <!--登录名-->
+        <div class="form-group has-default has-feedback">
+            <label class="control-label" for="inputGroupDefault1">登录账号</label>
+            <div class="input-group">
+                <!--<span class="input-group-addon">&nbsp;U&nbsp;</span>-->
+                <span class="glyphicon glyphicon-user input-group-addon" ></span>
+                <input type="text" name="username" required class="form-control" id="inputGroupDefault1" aria-describedby="inputGroupDefault1Status" placeholder="用户名/手机号/邮箱">
+            </div>
+            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+            <span id="inputGroupDefault1Status" class="sr-only">(success)</span>
+        </div>
+
+        <!--密码-->
+        <div class="form-group has-default has-feedback">
+            <label class="control-label" for="inputGroupDefault2">密码</label>
+            <div class="input-group">
+                <!--<span class="input-group-addon">&nbsp;P &nbsp;</span>-->
+                <span class="glyphicon glyphicon-lock input-group-addon" ></span>
+                <input type="password" name="password" required class="form-control" id="inputGroupDefault2" aria-describedby="inputGroupDefault2Status" placeholder="六位以上字母、数字、特殊符号">
+            </div>
+            <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+            <span id="inputGroupDefault2Status" class="sr-only">(success)</span>
+        </div>
+
+        <!-- 复选框 -->
+        <div class="form-group">
+            <div class="checkbox">
+                <label>
+                    <input  type="checkbox" name="agree"> <span>我同意</span>
+                </label>
+            </div>
+        </div>
+
+        <!--验证码-->
+        <div class="form-group">
+            <img src="{:U('Home/User/vcode')}" height="45px" />
+            <input type="text" name="vcode" placeholder="输入验证码" required><br>
+        </div>
+
+
+        <!--注册登录按钮-->
+        <div class="form-group">
+            <p><a href="login.html"><button type="button" class="btn btn-primary btn-block" style="background-color: #4285F4;">登录</button></a></p>
+            <p><a href="reg.html"><button type="button" class="btn btn-warning btn-block">注册</button>
+        </div></a></p>
+
+    </form>
+</div>
+
+<include file="Public/footer" />
+
+
