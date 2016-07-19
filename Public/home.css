@@ -14,6 +14,7 @@ nav a{
     margin-left: auto;
     margin-right: auto;
     margin-top:45px;
+    margin-bottom: 30px;
 }
 
 .user-nav{
@@ -28,4 +29,22 @@ nav a{
 .form-group{
     margin: 10px auto;
     width: 90%;
+}
+
+.header-main{
+    float: left;
+}
+
+.header-form{
+    float: left;
+}
+
+.header-search{
+    float: left;
+    /*margin-right: 20px;*/
+}
+.header-log{
+    float: right;
+    width: auto;
+    margin-right: 20px;
 }
