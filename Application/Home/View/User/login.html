@@ -47,7 +47,9 @@
 
         <!--验证码-->
         <div class="form-group">
-            <img src="{:U('Home/User/vcode')}" height="45px" />
+            <div id="test_img">
+                <img src="{:U('Home/User/vcode')}" height="45px" id="code"/>
+            </div>
             <input type="text" name="vcode" placeholder="输入验证码" required><br>
         </div>
 
@@ -60,6 +62,15 @@
 
     </form>
 </div>
+
+<script>
+    $(document).on('click','#code',function(){
+        $.get("{:U('Home/User/vcode')}" , function (){
+            $('#test_img').html('<img src="{:U('Home/User/vcode')}" height="45px" id="code"/>');
+        });
+    });
+
+</script>
 
 <include file="Public/footer" />
 

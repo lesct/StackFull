@@ -34,6 +34,7 @@ class UserController extends Controller
     {
         $vcode = new StackFull\Verifycode();
         $vcode->main();
+//    echo '11111111111';
 //        $this->display();
     }
 

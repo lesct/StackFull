@@ -46,3 +46,49 @@ crete database stackfull;
 
     4.关联表
         create table sf_
+
+***************************
+
+create database stackfull;
+use stackfull;
+
+create table ask(
+ask_id int unsigned not null auto_increment primary key,
+title varchar(30) not null,
+ask_tag not null,
+uid int unsigned not null,
+add_time not null,
+edit_time not null,
+ask_detail not null
+);
+create table answer(
+answer_id int unsigned not null ,
+answer_content text,
+add_time not null,
+edit_time not null,
+uid int unsigned not null,
+answer_comment not null
+);
+create table reply(
+reply_id int unsigned not null,
+reply_content text,
+uid int unsigned not null,
+reply_time not null
+);
+create table tags(
+tag_id int unsigned not null,
+tag_name varchar(60) not null
+)
+create table job(
+job_id int unsigned not null auto_increment primary key,
+job_name varchar(10) not null,
+job_price not null,
+job_place not null,
+job_desc not null,
+job_request not null
+)
+
+
+
+
+
