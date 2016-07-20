@@ -7,9 +7,23 @@ class IndexController extends Controller {
         $this->display();
     }
 
-//    public function styfoolish()
-//{
-//    $this->display();
-//}
+    public function stayfoolish()
+    {
+        $this->display();
+    }
 
+    public function stayfoolish_new()
+    {
+        $this->display();
+    }
+
+    public function stayhungry()
+    {
+        $this->display();
+    }
+
+    public function stayhungry_new()
+    {
+        $this->display();
+    }
 }
