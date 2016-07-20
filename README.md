@@ -1,4 +1,4 @@
-﻿﻿# StackFull
+# StackFull
 ## Intro
 这是一个程序员的求知、求职的社区。
 ## Feature
