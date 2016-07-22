@@ -1,0 +1,204 @@
+<include  file="Public/header"/>
+
+<div class="row">
+    <div class="clearfix">
+
+        <!--主内容-->
+        <div class="col-sm-12 col-md-9">
+            <!-- 用户数据内容 -->
+
+            <div class="moder-header">
+                <label for="photo">
+                    <img src="http://localhost/StackFull/Uplaods/avatar.jpg" width="100px" height="100px" alt="" class="img-circle">
+                </label>
+                <input type="file" id="photo" name="photo" class="hidden">
+                <span class="pull-right">
+                    <a href="{:U('Home/User/info_put')}" class="btn btn-success">编辑</a>
+                    <h4 class="pull-left" style="padding-right: 10px;">admin</h4>
+                </span>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-meta">
+                    <span><i class="icon icon-prestige"></i> 威望 : <em class="aw-text-color-green">0</em></span>
+                    <span><i class="icon icon-agree"></i> 赞同 : <em class="aw-text-color-orange">0</em></span>
+                    <span><i class="icon icon-thank"></i> 感谢 : <em class="aw-text-color-orange">0</em></span>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <ul class="nav nav-tabs aw-nav-tabs">
+                    <li class="active">
+                        <a href="#overview" id="page_overview" data-toggle="tab">
+                            概述
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#questions" id="page_questions" data-toggle="tab">提问
+                            <span class="badge">0</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#answers" id="page_answers" data-toggle="tab">
+                            回复
+                            <span class="badge">0</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#focus" id="page_focus" data-toggle="tab">关注</a>
+                    </li>
+                    <li>
+                        <a href="#actions" id="page_actions" data-toggle="tab">动态</a>
+                    </li>
+                    <li>
+                        <a href="#detail" id="page_detail" data-toggle="tab">详细资料</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- end 用户数据内容 -->
+
+            <!--modal-footer点击响应区域-->
+            <div class="tab-content">
+                <!--概述-->
+                <div class="tab-pane active" id="overview">
+                    <!-- 回复 -->
+                    <div class="modal-header">
+                        <h4 class=""><a class="pull-right" href="#">更多 »</a>回复</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-center bg-success">没有内容</p>
+                    </div>
+                    <!-- end 回复 -->
+
+                    <!-- 提问 -->
+                    <div class="modal-header">
+                        <h4 class=""><a class="pull-right" href="#">更多 »</a>提问</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-center bg-success">没有内容</p>
+                    </div>
+                    <!-- end 提问 -->
+
+                    <!-- 动态 -->
+                    <div class="modal-header">
+                        <h4 class=""><a class="pull-right" href="#">更多 »</a>动态</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-center bg-success">没有内容</p>
+                    </div>
+                </div>
+                <!--概述结束-->
+
+                <!--提问-->
+                <div class="tab-pane" id="questions">
+                    <div class="modal-header">
+                        <h4 class=""><a class="pull-right" href="#">更多 »</a>提问</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-center bg-success">没有内容</p>
+                    </div>
+                </div>
+
+                <!--回复-->
+                <div class="tab-pane" id="answers">
+                    <div class="modal-header">
+                        <h4 class="">回复</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-center bg-success">没有内容</p>
+                    </div>
+                </div>
+
+                <!--关注-->
+                <div class="tab-pane" id="focus">
+                    <div class="modal-header">
+                        <h4 class=""><a class="pull-right" href="#">更多 »</a>关注</h4>
+                    </div>
+                    <div class="modal-body">
+                        <ul>
+                            <li class="active"><a>关注的人</a></li>
+                            <li><a>关注者</a></li>
+                            <li><a>关注的话题</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--//动态-->
+                <div class="tab-pane" id="actions">
+                    <div class="modal-header">
+                        <h4 class=""><a class="pull-right" href="#">更多 »</a>动态</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p class="text-center bg-success">没有内容</p>
+                    </div>
+                </div>
+
+                <!--//详细资料-->
+                <div class="tab-pane" id="detail">
+                    <div class="modal-head">
+                        <h4>详细资料</h4>
+                    </div>
+                    <div class="modal-body">
+                        <tr>
+                            <th><span>个人成就:</span></th>
+                            <td>
+                                <p class="meta">
+                                    <span><i class="icon icon-prestige"></i>威望: <em class="aw-text-color-green">0</em></span>
+                                    <span><i class="icon icon-agree"></i>赞同: <em class="aw-text-color-orange">0</em></span>
+                                    <span><i class="icon icon-thank"></i>感谢: <em class="aw-text-color-orange">0</em></span>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><span>最后活跃:</span></th>
+                            <td>1 分钟前</td>
+                        </tr>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- 侧边栏 -->
+        <div class="col-sm-12 col-md-3 aw-side-bar">
+            <!--关注-->
+            <div class="modal-body">
+                <a  class="pull-right font-size-12">更多 »</a>
+                <span>关注 <em class="">0</em> 人 </span>
+                <p>
+                    <a class="" data-id="3" href="http://localhost/StackFull/Uplaods/"><img src="http://localhost/StackFull/Uplaods/default-img.png" alt=""></a>
+                    <a class="" data-id="2" href="http://localhost/StackFull/Uplaods/"><img src="http://localhost/StackFull/Uplaods/default-img.png" alt=""></a>
+                </p>
+            </div>
+            <!--被关注-->
+            <div class="modal-body">
+                <a class="pull-right font-size-12">更多 »</a>
+                <span>被 <em class="aw-text-color-blue">2</em> 人关注</span>
+                <p>
+                    <a class="" data-id="3" href="http://localhost/StackFull/Uplaods/"><img src="http://localhost/StackFull/Uplaods/default-img.png" alt=""></a>
+                    <a class="" data-id="2" href="http://localhost/StackFull/Uplaods/"><img src="http://localhost/StackFull/Uplaods/default-img.png" alt=""></a>
+                </p>
+            </div>
+            <!--关注话题-->
+            <div class="modal-body">
+                关注 <em class="">0</em> 话题
+            </div>
+            <!--主页访问-->
+            <div class="modal-body">
+                <span class="">主页访问量 : 1 次访问 </span>
+            </div>
+
+        </div>
+        <!-- end 侧边栏 -->
+
+    </div>
+</div>
+
+
+
+
+
+
+<include file="Public/footer" />

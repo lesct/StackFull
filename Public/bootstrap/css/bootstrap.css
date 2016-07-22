@@ -5979,7 +5979,8 @@ button.close {
 }
 .modal-header {
   min-height: 16.42857143px;
-  padding: 15px;
+  padding-top: 5px;
+  padding-left: 15px;
   border-bottom: 1px solid #e5e5e5;
 }
 .modal-header .close {
@@ -5991,10 +5992,12 @@ button.close {
 }
 .modal-body {
   position: relative;
-  padding: 15px;
+  padding: 5px;
 }
 .modal-footer {
-  padding: 15px;
+  padding-top: 15px;
+  padding-left:15px;
+  padding-bottom: 5px;
   text-align: right;
   border-top: 1px solid #e5e5e5;
 }
@@ -6007,6 +6010,10 @@ button.close {
 }
 .modal-footer .btn-block + .btn-block {
   margin-left: 0;
+}
+
+.modal-meta{
+  margin: 10px;
 }
 .modal-scrollbar-measure {
   position: absolute;

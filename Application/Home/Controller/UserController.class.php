@@ -11,7 +11,8 @@ class UserController extends Controller
 //        $user = D('user');
 //    }
     public function index(){
-        echo '成功';
+//        echo '成功';
+        $this->success('登录成功', U('info'));
     }
     //注册
     public function reg()
@@ -117,5 +118,7 @@ class UserController extends Controller
         $data = $user->selectUser();
         dump($data);
     }
+
+
 }
 
