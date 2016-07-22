@@ -20,16 +20,16 @@ crete database stackfull;
 
 创建数据库表
     1.用户表
-        create table sf_user(
-            uid int not null auto_increment primary key,
-            uname varchar(32) not null default ''unique key,
-            mobile varchar(16) not null default ''unique key,
-            email varchar(64) not null default '' unique key,
-            password varchar(32) not null default '',
-            avatar varchar(100) not null default '',
-            salt varchar(6) not null default '',
-            gender tinyint not null default '0',
-            ctime int not null default '0',
+create table sf_user(
+uid int not null auto_increment primary key,
+uname varchar(32) not null default ''unique key,
+mobile varchar(16) not null default ''unique key,
+email varchar(64) not null default '' unique key,
+password varchar(32) not null default '',
+avatar varchar(100) not null default '',
+salt varchar(6) not null default '',
+gender tinyint not null default '0',
+ctime int not null default '0'
 )ENGINE=InnoDB charset=utf8;
 
     2.提问表
@@ -61,6 +61,36 @@ add_time not null,
 edit_time not null,
 ask_detail not null
 );
+create table sf_ask(
+    `ask_id` int unsigned not null auto_increment,
+    `title` varchar(255) not null default '' comment '',
+    `content` text comment '',
+    `uid` int unsigned not null default 0 comment '',
+    `ctime` int unsigned not null default 0 comment '',
+    `mtime` int unsigned not null default 0 comment '',
+    primary key (`ask_id`),
+    key `uid`(`uid`)
+)engine=InnoDB default charset=utf8 comment '';
+
+create table sf_tags(
+    `tid` int unsigned not null auto_increment,
+    `name` varchar(255) not null default '' comment  '',
+    `summary` text comment '',
+    `ctime` int unsigned not null default 0 comment '',
+    `mtime` int unsigned not null default 0 comment '',
+    primary key (`tid`)
+)engine=InnoDB default charset=utf8 comment '';
+
+
+create table sf_ask_tag(
+    `ask_id` int unsigned not null default 0 comment '',
+    `tid` int unsigned not null default 0 comment '',
+    `ctime` int unsigned not null default 0 comment '',
+    unique key `ask_id`(`ask_id`, `tid`),
+    key `tid`(`tid`)
+)engine=InnoDB default charset=utf8 comment '';
+
+
 create table answer(
 answer_id int unsigned not null ,
 answer_content text,

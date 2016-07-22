@@ -10,92 +10,186 @@
 
 <!--注册页面表单-->
 <div class="form_user">
-    <form method="post" action="{:U('Home/User/reg_submit')}" >
+    <form method="post" action="{:U('Home/User/reg')}" >
 
         <!--用户名-->
         <div class="form-group has-default has-feedback">
-            <label class="control-label" for="inputGroupDefault1">用户名</label>
+            <label class="control-label" for="uname">用户名</label>
             <div class="input-group">
                 <!--<span class="input-group-addon">&nbsp;U&nbsp;</span>-->
                 <span class="glyphicon glyphicon-user input-group-addon" ></span>
-                <input type="text" name="uname" required class="form-control" id="inputGroupDefault1" aria-describedby="inputGroupDefault1Status" placeholder="字母、数字，用户名唯一">
+                <input type="text" name="uname" required class="form-control" id="uname" aria-describedby="inputGroupDefault1Status" placeholder="字母、数字，用户名唯一">
             </div>
+            <span class='uname help-block err'></span>
             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
             <span id="inputGroupDefault1Status" class="sr-only">(success)</span>
         </div>
 
         <!--手机号-->
         <div class="form-group has-default has-feedback">
-            <label class="control-label" for="inputGroupDefault2">手机号</label>
+            <label class="control-label" for="mobile">手机号</label>
             <div class="input-group">
                 <!--<span class="input-group-addon">&nbsp;M&nbsp;</span>-->
                 <span class="glyphicon glyphicon-phone input-group-addon"></span>
-                <input type="text" name="mobile" required class="form-control" id="inputGroupDefault2" aria-describedby="inputGroupDefault2Status" placeholder="11位数字">
+                <input type="text" name="mobile" required class="form-control" id="mobile" aria-describedby="inputGroupDefault2Status" placeholder="11位数字">
             </div>
+            <span class='mobile help-block err'></span>
             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
             <span id="inputGroupDefault2Status" class="sr-only">(success)</span>
         </div>
 
         <!--邮箱-->
         <div class="form-group has-default has-feedback">
-            <label class="control-label" for="inputGroupDefault3"> Email</label>
+            <label class="control-label" for="email"> Email</label>
             <div class="input-group">
                 <!--<span class="input-group-addon">&nbsp;@</span>-->
                 <span class="glyphicon glyphicon-envelope input-group-addon"></span>
-                <input type="email" name="email" required class="form-control" id="inputGroupDefault3" aria-describedby="inputGroupDefault3Status" placeholder="sf@stackfull.com">
+                <input type="email" name="email" required class="form-control" id="email" aria-describedby="inputGroupDefault3Status" placeholder="sf@stackfull.com">
             </div>
+            <span class='email help-block err'></span>
             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
             <span id="inputGroupDefault3Status" class="sr-only">(success)</span>
         </div>
 
         <!--密码-->
         <div class="form-group has-default has-feedback">
-            <label class="control-label" for="inputGroupDefault4">密  码</label>
+            <label class="control-label" for="password">密  码</label>
             <div class="input-group">
                 <!--<span class="input-group-addon">&nbsp;P &nbsp;</span>-->
                 <span class="glyphicon glyphicon-lock input-group-addon" ></span>
-                <input type="password" name="password" required class="form-control" id="inputGroupDefault4" aria-describedby="inputGroupDefault4Status" placeholder="不少于六位，至少有两种字母、数字和特殊符号等">
+                <input type="password" name="password" required class="form-control" id="password" aria-describedby="inputGroupDefault4Status" placeholder="不少于六位，至少有两种字母、数字和特殊符号等">
             </div>
+            <span class='password help-block err'></span>
             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
             <span id="inputGroupDefault4Status" class="sr-only">(success)</span>
         </div>
 
         <!--确认密码-->
         <div class="form-group has-default has-feedback">
-            <label class="control-label" for="inputGroupDefault5">确认密码</label>
+            <label class="control-label" for="passwords">确认密码</label>
             <div class="input-group">
                 <!--<span class="input-group-addon">&nbsp;P &nbsp;</span>-->
                 <span class="glyphicon glyphicon-lock input-group-addon" ></span>
-                <input type="password" name="passwords" required class="form-control" id="inputGroupDefault5" aria-describedby="inputGroupDefault5Status" placeholder="确认输入密码">
+                <input type="password" name="passwords" required class="form-control" id="passwords" aria-describedby="inputGroupDefault5Status" placeholder="确认输入密码">
             </div>
+            <span class='passwords help-block err'></span>
             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
             <span id="inputGroupDefault5Status" class="sr-only">(success)</span>
         </div>
 
-        <!-- 复选框 -->
-        <div class="form-group">
-            <div class="checkbox">
-                <label>
-                    <input type="checkbox" required name="agree"> <span>我同意</span>
-                </label>
-            </div>
-        </div>
+        <!--&lt;!&ndash; 复选框 &ndash;&gt;-->
+        <!--<div class="form-group">-->
+            <!--<div class="checkbox">-->
+                <!--<label>-->
+                    <!--<input type="checkbox" checked required name="agree"> <span>我同意注册协议</span>-->
+                <!--</label>-->
+            <!--</div>-->
+        <!--</div>-->
 
         <!--验证码-->
         <div class="form-group">
-            <img src="{:U('Home/User/vcode')}" height="45px" />
-            <input type="text" name="vcode" placeholder="输入验证码" required><br>
+            <img src="{:U('Home/User/vcode')}" height="45px" onclick="this.src='{:U('Home/User/vcode')}?'+Math.random()"/>
+            <input type="text" name="vcode" placeholder="输入验证码" id="vcode" required><br>
         </div>
+        <span class='vcode help-block err'></span>
 
         <!--注册登录按钮-->
         <div class="form-group">
-            <p><a href="reg.html"><button type="button" class="btn btn-warning btn-block">注册</button></a></p>
+            <p><button type="button" class="btn btn-warning btn-block" id="onSubmit">注册</button></p>
             <p><a href="login.html"><button type="button" class="btn btn-primary btn-block" style="background-color: #4285F4;">登录</button></a></p>
         </div>
 
     </form>
 </div>
+<script>
+    $(document).ready(function () {
+        $('#onSubmit').click(function () {
 
+            var suname = $('.uname');
+                                suname.html('');
+            var semail = $('.email');
+                                semail.html('');
+            var smobile = $('.mobile');
+                                smobile.html('');
+            var svcode = $('.vcode');
+                                svcode.html('');
+            var spassword = $('.password');
+                                spassword.html('');
+//            suname.next().addClass('glyphicon-ok').removeClass('glyphicon-remove');
+//            $('#uname').parent().parent().addClass('has-default').removeClass('has-error');
+//            semail.next().addClass('glyphicon-ok').removeClass('glyphicon-remove');
+//            $('#mobile').parent().parent().addClass('has-default').removeClass('has-error');
+//            smobile.next().addClass('glyphicon-ok').removeClass('glyphicon-remove');
+//            $('#email').parent().parent().addClass('has-default').removeClass('has-error');
+//            svcode.next().addClass('glyphicon-ok').removeClass('glyphicon-remove');
+//            $('#password').parent().parent().addClass('has-default').removeClass('has-error');
+//            spassword.next().addClass('glyphicon-ok').removeClass('glyphicon-remove');
+//            $('#passwords').parent().parent().addClass('has-default').removeClass('has-error');
+                var uname = $('#uname').val(),
+                    mobile = $('#mobile').val(),
+                    email = $('#email').val(),
+                    password = $('#password').val(),
+                    passwords = $('#passwords').val(),
+                    vcode = $('#vcode').val();
+            if(uname==''||mobile==''||email==''||password==''||vcode==''){
+                alert('有什么数据没填吧！');
+                return false;
+            }
+            $.ajax({
+                type : 'post',
+                        url : "{:U('Home/User/reg')}",
+                        data : {uname:uname,mobile:mobile,email:email,password:password,passwords:passwords,vcode:vcode},
+                dataType : 'json',
+                        success : function (data){
+                            console.log(data);
+                            if(data.status==0){
+                                location.href = "{:U('home/user/index')}";
+                            }
+                            $.each(data,function (u, value) {
+                                var uname = $('.uname');
+//                                uname.html('');
+                                var email = $('.email');
+//                                email.html('');
+                                var mobile = $('.mobile');
+//                                mobile.html('');
+                                var vcode = $('.vcode');
+//                                vcode.html('');
+                                var password = $('.password');
+//                                password.html('');
+                                if(value.status == 4){
+                                    uname.html(value.info);
+//                                    uname.next().addClass('glyphicon-remove').removeClass('glyphicon-ok');
+//                                    $('#uname').parent().parent().addClass('has-error').removeClass('has-default');
+                                }
+                                if(value.status == 1){
+                                    vcode.html(value.info);
+//                                    vcode.next().addClass('glyphicon-remove').removeClass('glyphicon-ok');
+//                                    $('#vcode').parent().parent().addClass('has-error');
+                                }
+                                if(value.status == 2){
+                                    password.html(value.info);
+//                                    password.next().addClass('glyphicon-remove').removeClass('glyphicon-ok');
+//                                    $('#password').parent().parent().addClass('has-error');
+                                }
+                                if(value.status == 3){
+                                    email.html(value.info);
+//                                    email.next().addClass('glyphicon-remove').removeClass('glyphicon-ok');
+//                                    $('#email').parent().parent().addClass('has-error');
+                                }
+                                if(value.status == 5){
+                                    mobile.html(value.info);
+//                                    mobile.next().addClass('glyphicon-remove').removeClass('glyphicon-ok');
+//                                    $('#mobile').parent().parent().addClass('has-error');
+                                }
+                            });
+//                    if (res.status==1){
+//                        window.location.href = "{:U('Home/User/index')}";
+//                    }
+                }
+            });
+        });
+    });
+</script>
 <include file="Public/footer" />
 
 

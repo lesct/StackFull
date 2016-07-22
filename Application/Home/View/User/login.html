@@ -10,28 +10,30 @@
 
 <!--注册页面表单-->
 <div class="form_user">
-    <form method="post" action="{:U('Home/User/login_submit')}" >
+    <form method="post" action="" >
 
         <!--登录名-->
         <div class="form-group has-default has-feedback">
-            <label class="control-label" for="inputGroupDefault1">登录账号</label>
+            <label class="control-label" for="uname">登录账号</label>
             <div class="input-group">
                 <!--<span class="input-group-addon">&nbsp;U&nbsp;</span>-->
                 <span class="glyphicon glyphicon-user input-group-addon" ></span>
-                <input type="text" name="username" required class="form-control" id="inputGroupDefault1" aria-describedby="inputGroupDefault1Status" placeholder="用户名/手机号/邮箱">
+                <input type="text" name="uname" required class="form-control" id="uname" aria-describedby="inputGroupDefault1Status" placeholder="用户名/手机号/邮箱">
             </div>
+            <span class='uname help-block err'></span>
             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
             <span id="inputGroupDefault1Status" class="sr-only">(success)</span>
         </div>
 
         <!--密码-->
         <div class="form-group has-default has-feedback">
-            <label class="control-label" for="inputGroupDefault2">密码</label>
+            <label class="control-label" for="password">密码</label>
             <div class="input-group">
                 <!--<span class="input-group-addon">&nbsp;P &nbsp;</span>-->
                 <span class="glyphicon glyphicon-lock input-group-addon" ></span>
-                <input type="password" name="password" required class="form-control" id="inputGroupDefault2" aria-describedby="inputGroupDefault2Status" placeholder="六位以上字母、数字、特殊符号">
+                <input type="password" name="password" required class="form-control" id="password" aria-describedby="inputGroupDefault2Status" placeholder="六位以上字母、数字、特殊符号">
             </div>
+            <span class='password help-block err'></span>
             <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
             <span id="inputGroupDefault2Status" class="sr-only">(success)</span>
         </div>
@@ -40,7 +42,7 @@
         <div class="form-group">
             <div class="checkbox">
                 <label>
-                    <input  type="checkbox" name="agree"> <span>我同意</span>
+                    <input checked type="checkbox" name="agree"> <span>我同意</span>
                 </label>
             </div>
         </div>
@@ -48,28 +50,66 @@
         <!--验证码-->
         <div class="form-group">
             <div id="test_img">
-                <img src="{:U('Home/User/vcode')}" height="45px" id="code"/>
+                <img src="{:U('Home/User/vcode')}" height="45px"  onclick="this.src='{:U('Home/User/vcode')}?'+Math.random()" />
             </div>
-            <input type="text" name="vcode" placeholder="输入验证码" required><br>
+            <input type="text" name="vcode" placeholder="输入验证码" required id="vcode"><br>
         </div>
+        <span class='vcode help-block err'></span>
 
 
         <!--注册登录按钮-->
         <div class="form-group">
-            <p><a href="login.html"><button type="button" class="btn btn-primary btn-block" style="background-color: #4285F4;">登录</button></a></p>
-            <p><a href="reg.html"><button type="button" class="btn btn-warning btn-block">注册</button>
-        </div></a></p>
+            <p><button type="button" class="btn btn-primary btn-block" style="background-color: #4285F4;" id="onSubmit">登录</button></p>
+            <p><a href="reg.html"><button type="button" class="btn btn-warning btn-block">注册</button></a></p>
+        </div>
+
 
     </form>
 </div>
 
 <script>
-    $(document).on('click','#code',function(){
-        $.get("{:U('Home/User/vcode')}" , function (){
-            $('#test_img').html('<img src="{:U('Home/User/vcode')}" height="45px" id="code"/>');
-        });
-    });
+    $(document).ready(function (){
 
+        $('#onSubmit').click(function () {
+            var suname = $('.uname');
+            suname.html('');
+            var svcode = $('.vcode');
+            svcode.html('');
+            var spassword = $('.password');
+            spassword.html('');
+            var uname = $('#uname').val(),
+                    password = $('#password').val(),
+                    vcode = $('#vcode').val();
+            if(uname==''||password==''||vcode==''){
+                alert('有什么数据没填吧！');
+                return false;
+            }
+            $.ajax({
+                type: 'post',
+                url:"{:U('Home/User/login')}",
+                data:{uname:uname,password:password,vcode:vcode},
+                dataType:'json',
+                success:function (data) {
+                    var uname = $('.uname');
+                    var vcode = $('.vcode');
+                    var password = $('.password');
+                    if(data.status==2){
+                        uname.html(data.info);
+                    }
+                    if(data.status==3){
+                        password.html(data.info);
+                    }
+                    if(data.status==4){
+                        vcode.html(data.info);
+                    }
+                    if(data.status==1){
+                        location.href = "{:U('home/user/index')}";
+                    }
+                }
+            });
+        });
+
+    });
 </script>
 
 <include file="Public/footer" />
